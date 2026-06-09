@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* ─── Font variable passthrough ─── */
+@theme {
+  --font-serif: var(--font-cormorant), "Georgia", serif;
+  --font-mono: var(--font-dmmono), "Courier New", monospace;
+
+  /* ─── Brand Colors ─── */
+  --color-cream: #F7F8F5;
+  --color-forest: #18362F;
+  --color-accent: #6CE8C2;
+  --color-muted: #A9B4AE;
+  --color-dark: #061412;
+  --color-dark-2: #0A1E1B;
+}
+
+/* ─── Base reset ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #F7F8F5;
+  color: #18362F;
+  font-family: var(--font-mono);
+  overflow-x: hidden;
+}
+
+/* ─── Typography utilities ─── */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ─── Selection ─── */
+::selection {
+  background-color: rgba(108, 232, 194, 0.25);
+  color: #18362F;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(24, 54, 47, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(24, 54, 47, 0.25);
+}
+
+/* ─── Dark section scrollbar override ─── */
+.bg-dark ::-webkit-scrollbar-track,
+section[class*="bg-\[#061412\]"] ::-webkit-scrollbar-track {
+  background: #061412;
+}
+
+/* ─── Focus visible ─── */
+:focus-visible {
+  outline: 2px solid #6CE8C2;
+  outline-offset: 2px;
+}
+
+/* ─── Remove outline for mouse users ─── */
+:focus:not(:focus-visible) {
+  outline: none;
+}
